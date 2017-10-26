@@ -14,12 +14,14 @@ QueueDataStructure.prototype.isEmpty = function() {
 QueueDataStructure.prototype.canEnqueue = function() {
   if (this.queueControl.length < this.MAX_SIZE) {
     return true;
+  } else {
+    return false;
   }
 };
 
 QueueDataStructure.prototype.enqueue = function(number) {
   if (this.canEnqueue()) {
-    this.queueControl.push(number);
+    this.queueControl.unshift(number);
     return this.queueControl;
   } else {
     return 'Queue Overflow';
@@ -29,6 +31,8 @@ QueueDataStructure.prototype.enqueue = function(number) {
 
 QueueDataStructure.prototype.dequeue = function() {
   if (this.isEmpty()) {
-    this.queueControl.unshift(this.queueControl.length[this.ququeueControl.length - 1]);
+    this.queueControl.shift();
+  } else {
+    return;
   }
 };
